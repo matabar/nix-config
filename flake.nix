@@ -30,13 +30,14 @@
 
         taps = [ "manaflow-ai/cmux" ];
         brews = [ "mas" ];
-        casks = [ 
+        casks = [
           "cmux"
-          "docker-desktop" 
-          "slack" 
-          "discord" 
-          "spotify" 
-          "rectangle" 
+          "docker-desktop"
+          "gitkraken"
+          "slack"
+          "discord"
+          "spotify"
+          "rectangle"
         ];
       };
 
