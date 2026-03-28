@@ -14,7 +14,7 @@
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = [ 
-        pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh
+        pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide
       ];
 
       # Fixed: Global aliases in nix-darwin live here
@@ -43,7 +43,10 @@
       };
 
       nix.enable = false; 
-      programs.zsh.enable = true; 
+      programs.zsh.enable = true;
+      programs.zsh.interactiveShellInit = ''
+        eval "$(zoxide init zsh)"
+      '';
       system.stateVersion = 6;
       nixpkgs.hostPlatform = "aarch64-darwin";
       security.pam.services.sudo_local.touchIdAuth = true;
