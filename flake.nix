@@ -57,6 +57,10 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
       security.pam.services.sudo_local.touchIdAuth = true;
 
+      system.activationScripts.postActivation.text = ''
+        sudo -u matan mkdir -p /Users/matan/Projects/matabar
+      '';
+
       system.defaults = {
         dock.autohide = true;
         dock.mru-spaces = false;
