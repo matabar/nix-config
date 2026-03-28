@@ -19,6 +19,7 @@
 
       environment.systemPackages = [
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
+        pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
       ];
 
       # Fixed: Global aliases in nix-darwin live here
@@ -50,6 +51,10 @@
       programs.zsh.enable = true;
       programs.zsh.promptInit = "";
       programs.zsh.interactiveShellInit = ''
+        source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        fpath+=${pkgs.zsh-completions}/share/zsh/site-functions
+        autoload -Uz compinit && compinit
         eval "$(zoxide init zsh)"
         eval "$(starship init zsh)"
       '';
