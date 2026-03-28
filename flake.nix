@@ -38,6 +38,7 @@
           "discord"
           "spotify"
           "rectangle"
+          "wispr-flow"
         ];
       };
 
