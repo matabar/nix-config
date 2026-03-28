@@ -48,6 +48,7 @@
 
       nix.enable = false; 
       programs.zsh.enable = true;
+      programs.zsh.promptInit = "";
       programs.zsh.interactiveShellInit = ''
         eval "$(zoxide init zsh)"
         eval "$(starship init zsh)"
