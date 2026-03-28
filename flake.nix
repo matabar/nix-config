@@ -14,7 +14,7 @@
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = [ 
-        pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide
+        pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
       ];
 
       # Fixed: Global aliases in nix-darwin live here
@@ -46,6 +46,7 @@
       programs.zsh.enable = true;
       programs.zsh.interactiveShellInit = ''
         eval "$(zoxide init zsh)"
+        eval "$(starship init zsh)"
       '';
       system.stateVersion = 6;
       nixpkgs.hostPlatform = "aarch64-darwin";
