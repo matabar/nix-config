@@ -34,7 +34,7 @@
         onActivation.upgrade = true;
 
         taps = [ "manaflow-ai/cmux" ];
-        brews = [ "mas" ];
+        brews = [ "herdr" "mas" ];
         casks = [
           "cmux"
           "docker-desktop"
