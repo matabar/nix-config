@@ -18,6 +18,7 @@
       ];
 
       environment.systemPackages = [
+        pkgs.codex
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
         pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
       ];
