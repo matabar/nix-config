@@ -21,7 +21,19 @@
         pkgs.codex
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
         pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
+        pkgs.temurin-bin-26
+        pkgs.kubernetes-helm
+        pkgs.cargo pkgs.rustc pkgs.rustfmt pkgs.rust-analyzer
       ];
+
+      # Temurin 26 is OpenJDK 26; jdk26 is not in nixpkgs yet (Zulu tops out at 25).
+      environment.variables = {
+        JAVA_HOME = "${pkgs.temurin-bin-26.home}";
+        RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+      };
+
+      # So Dock/Cursor-launched apps see RUST_SRC_PATH (shells get it via set-environment).
+      launchd.user.envVariables.RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
 
       # Fixed: Global aliases in nix-darwin live here
       environment.shellAliases = {
@@ -34,9 +46,13 @@
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
 
-        taps = [ "manaflow-ai/cmux" ];
+        taps = [
+          "manaflow-ai/cmux"
+          "nikitabobko/tap"
+        ];
         brews = [ "herdr" "mas" ];
         casks = [
+          "nikitabobko/tap/aerospace"
           "cmux"
           "docker-desktop"
           "gitkraken"
@@ -45,6 +61,7 @@
           "spotify"
           "rectangle"
           "wispr-flow"
+          "zed"
         ];
       };
 
