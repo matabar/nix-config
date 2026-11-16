@@ -21,14 +21,14 @@
         pkgs.codex
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
         pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
-        pkgs.temurin-bin-26
+        pkgs.temurin-bin-27
         pkgs.kubernetes-helm
         pkgs.cargo pkgs.rustc pkgs.rustfmt pkgs.rust-analyzer
       ];
 
-      # Temurin 26 is OpenJDK 26; jdk26 is not in nixpkgs yet (Zulu tops out at 25).
+      # Temurin 27 is OpenJDK 27; jdk27 is not in nixpkgs yet.
       environment.variables = {
-        JAVA_HOME = "${pkgs.temurin-bin-26.home}";
+        JAVA_HOME = "${pkgs.temurin-bin-27.home}";
         RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
       };
 
