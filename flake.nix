@@ -19,6 +19,9 @@
 
       environment.systemPackages = [
         pkgs.codex
+        pkgs.uv
+        # Latest stable Python; pkgs.python3 still points to 3.14.
+        pkgs.python315
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
         pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
         pkgs.temurin-bin-27
@@ -30,6 +33,9 @@
       environment.variables = {
         JAVA_HOME = "${pkgs.temurin-bin-27.home}";
         RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+        # Make uv use the Nix Python and never download its own.
+        UV_PYTHON_DOWNLOADS = "never";
+        UV_PYTHON = "${pkgs.python315}/bin/python3.15";
       };
 
       # So Dock/Cursor-launched apps see RUST_SRC_PATH (shells get it via set-environment).
