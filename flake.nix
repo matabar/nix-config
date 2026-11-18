@@ -20,6 +20,7 @@
       environment.systemPackages = [
         pkgs.codex
         pkgs.uv
+        pkgs.cosign
         # Latest stable Python; pkgs.python3 still points to 3.14.
         pkgs.python315
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
