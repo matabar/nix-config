@@ -26,6 +26,7 @@
         pkgs.vim pkgs.git pkgs.jq pkgs.neovim pkgs.tmux pkgs.htop pkgs.claude-code pkgs.gh pkgs.zoxide pkgs.starship
         pkgs.zsh-autosuggestions pkgs.zsh-syntax-highlighting pkgs.zsh-completions
         pkgs.temurin-bin-27
+        (pkgs.maven.override { jdk_headless = pkgs.temurin-bin-27; })
         pkgs.kubernetes-helm
         pkgs.cargo pkgs.rustc pkgs.rustfmt pkgs.rust-analyzer
       ];
